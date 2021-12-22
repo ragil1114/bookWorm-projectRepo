@@ -10,14 +10,57 @@
 <body>
     <header class="jumboton">
         <h1 class="display-1">Book Worm</h1>
-        <p>Explore</p>
-        <p>Community</p>
-        <p>Wishlist</p>
+
+        <p></p>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="#explore">Explore</a>
+          </li>
+          <li>
+            <a href="#wish-list">Wishlist</a>
+          </li>
+          <li>
+            <a href="#my-books">My Books</a>
+          </li>
+        </ul>
+      </nav>
+
         <form>
             <label for="search-bar">Search Books</label>
             <input type="text" placeholder="Book Title" name="Title" id="Title" class="form-input" />
         </form>   
     </header>
+
+    <main>
+        <section>
+            <form class="bookworm-picks">
+                <label for="recently-read">What I have Recently Read</label>
+                <input type="text" placeholder="Let BookWorm Choose" name="" id="bookworm-choice" class="form-input" />
+            </form>
+        </section>
+
+        <div class="genre-container">
+            <div class="best-sellers">
+                <h2>Best Sellers</h2>
+            </div>
+            <div class="new-releases">
+                <h2>New Releases</h2>
+            </div>
+            <div class="resolution-reads">
+                <h2>New year... New you!</h2>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div>
+          &copy; 2021 Book Worm, Inc.
+        </div>  
+    </footer>
+
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
