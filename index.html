@@ -1,13 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Book Worm</title>
 </head>
+
 <body>
+    <header class="navbar has-background-grey-lighter">
+        <h1 class="title is-1 display-1">Book Worm</h1>
+
+        <p></p>
+
+        <nav class="navbar-menu">
+            <ul class="navbar-start">
+                <li>
+                    <a href="#explore" class="navbar-item">Explore</a>
+                </li>
+                <li>
+                    <a href="#wish-list" class="navbar-item">Wishlist</a>
+                </li>
+                <li>
+                    <a href="#my-books" class="navbar-item">My Books</a>
+                </li>
+            </ul>
+        </nav>
+
+        <form>
+            <label for="search-bar">Search Books</label>
+            <input type="text" placeholder="Book Title" name="Title" id="Title" class="form-input" />
+            <button class="button is-success" id="search-btn">Search:</button>
+        </form>
+    </header>
+
+    <main>
+        <section>
+            <form class="bookworm-picks">
+                <label for="recently-read">What I have Recently Read</label>
+                <input type="text" placeholder="Let BookWorm Choose" name="" id="bookworm-choice" class="form-input" />
+            </form>
+        </section>
+
+        <div class="genre-container">
+            <div class="best-sellers">
+                <h2>Best Sellers</h2>
+            </div>
+            <div class="new-releases">
+                <h2>New Releases</h2>
+            </div>
+            <div class="resolution-reads">
+                <h2>New year... New you!</h2>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div>
+            &copy; 2021 Book Worm, Inc.
+        </div>
+    </footer>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
