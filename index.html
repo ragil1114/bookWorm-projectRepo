@@ -11,10 +11,8 @@
 </head>
 
 <body>
-    <header class="navbar has-background-grey-lighter">
+    <header class="navbar">
         <h1 class="title is-1 display-1">Book Worm</h1>
-
-        <p></p>
 
         <nav class="navbar-menu">
             <ul class="navbar-start">
@@ -32,27 +30,30 @@
 
         <form>
             <label for="search-bar">Search Books</label>
-            <input type="text" placeholder="Book Title" name="Title" id="Title" class="form-input" />
-            <button class="button is-success" id="search-btn">Search:</button>
+            <input type="text" placeholder="Book Title" name="Title" id="Title" class="input is-success" />
+            <button class="button is-success is-small" id="search-btn">Search:</button>
         </form>
     </header>
 
+    <section class="section">
+        <p>Welcome to Book Worm where you can keep track of books you read and would like to read. Use the search bar to search by genre, author or topic! Check out our explore page for more genre options or get started tracking your own reading!</p>
+    </section>
+
     <main>
-        <section>
-            <form class="bookworm-picks">
-                <label for="recently-read">What I have Recently Read</label>
-                <input type="text" placeholder="Let BookWorm Choose" name="" id="bookworm-choice" class="form-input" />
-            </form>
+        <section class="card has-background-grey-lighter">
+            <h2 class="card-header-title is-centered">Book of the Month:</h2>
+            <div class="card-image"></div>
+            <div class="card-content"><p>synopsis:</p></div>
         </section>
 
         <div class="genre-container">
-            <div class="best-sellers">
+            <div class="best-sellers box">
                 <h2>Best Sellers</h2>
             </div>
-            <div class="new-releases">
+            <div class="new-releases box">
                 <h2>New Releases</h2>
             </div>
-            <div class="resolution-reads">
+            <div class="resolution-reads box">
                 <h2>New year... New you!</h2>
             </div>
         </div>

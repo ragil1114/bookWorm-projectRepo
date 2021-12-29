@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>My Books</title>
 </head>
 
 <body>
-    <header class="navbar has-background-grey-lighter" role="navigation">
-        <h1 class="title is-1">My Books</h1>
+    <header class="navbar has-background-grey-lighter" role="navigation aria" aria-label="main navigation">
+        <h1 class="title is-1">Book Worm</h1>
         <nav class="navbar-menu">
             <ul class="navbar-start">
                 <li>
@@ -34,8 +34,29 @@
         </form> 
     </header>
     <main>
-        <div class="container my-books-contianer"></div>
+        <div class="container mt-4">
+            <h1 class="title is-2">My Books:</h1>
+            <div class="box">
+                <h2>Currently Reading:</h2>
+                <div class="currenty-reading"></div>
+            </div>
+            <div class="box">
+                <h2>To Read:</h2>
+                <div class="to-read-list"></div>
+            </div>
+            <div class="box">
+                <h2>Read:</h2>
+                <div class="read-list"></div>
+            </div>
+        </div>
     </main>
+
+    <footer>
+        <div>
+            &copy; 2021 Book Worm, Inc.
+        </div>
+    </footer>
+
     <script src="./assets/js/script.js"></script>
 </body>
 
