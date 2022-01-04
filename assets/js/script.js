@@ -15,12 +15,13 @@ var displaySearch = async function(event) {
     myBookEl.setAttribute("class", "hide");
     resultEl.removeAttribute("class");
 
-    console.log(endPoint);
+    // console.log(endPoint);
+    // part of the async await to configue promise chain
     const response = await fetch(endPoint);
 
     if(!response.ok) {
         throw new Error("something went wrong")
-    }
+    };
 
     const { items } = await response.json();
     console.log(items);
@@ -45,14 +46,17 @@ var displaySearch = async function(event) {
         cardTitleEl.setAttribute("class", "card-content");
         cardImgEl.setAttribute("class", "card-image");
 
+        // add buttons to the card for currently reading
         currentRead.setAttribute("class", "button");
         currentRead.addEventListener("click", addtoCurrentRead)
         currentRead.textContent = "Currently Reading"
         
+        // add buttons to the card for to read
         toRead.setAttribute("class", "button");
         toRead.addEventListener("click", addToRead)
         toRead.textContent = "To Read"
         
+        // add buttons to the card for read
         read.setAttribute("class", "button");
         read.addEventListener("click", addRead)
         read.textContent = "Read Book"
@@ -60,6 +64,7 @@ var displaySearch = async function(event) {
         titleEl.textContent = title 
         imageEl.setAttribute("src", image)
         
+        // append to elements and cards
         cardTitleEl.appendChild(titleEl);
         cardImgEl.appendChild(imageEl);
         
