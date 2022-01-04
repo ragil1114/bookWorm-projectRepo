@@ -1,44 +1,102 @@
+//global variables
 var searchBtn = document.querySelector("#search-btn");
 var resultEl = document.querySelector("#search-results");
 var myBookEl = document.querySelector("#my-book-container");
 
-var results = [];
-
-var displaySearch = function() {
+// function to display items from search bar
+var displaySearch = async function(event) {
+    event.preventDefault();
     var searchTerm = document.querySelector("#title").value;
+    searchTerm = searchTerm.split(" ").join("-");
     var apiKey = "AIzaSyAH_XNq1-MK1My5OziQ3WIbWCh4WQPxPV8"
     var endPoint = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`
 
+    // change classes to display correct div
     myBookEl.setAttribute("class", "hide");
     resultEl.removeAttribute("class");
 
     console.log(endPoint);
-    fetch("https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699")
-        .then(function(response) {
-            console.log("hi");
-            return response.json()
-        })
-        .then(function(data){
-            console.log(data);
-        }),
-        function(error){
-            console.log(error);
+    const response = await fetch(endPoint);
+
+    if(!response.ok) {
+        throw new Error("something went wrong")
+    }
+
+    const { items } = await response.json();
+    console.log(items);
+
+    // for each item in array create a card to display content
+    items.forEach(function(item) {
+        var title = item.volumeInfo.title
+        var image = item.volumeInfo.imageLinks.thumbnail 
+
+        var titleEl = document.createElement("h3");
+        var imageEl = document.createElement("img");
+        var card = document.createElement("div");
+
+        var cardTitleEl = document.createElement("div");
+        var cardImgEl = document.createElement("div");
+
+        var currentRead = document.createElement("button");
+        var toRead = document.createElement("button");
+        var read = document.createElement("button");
+
+        card.setAttribute("class", "card");
+        cardTitleEl.setAttribute("class", "card-content");
+        cardImgEl.setAttribute("class", "card-image");
+
+        currentRead.setAttribute("class", "button");
+        currentRead.addEventListener("click", addtoCurrentRead)
+        currentRead.textContent = "Currently Reading"
+        
+        toRead.setAttribute("class", "button");
+        toRead.addEventListener("click", addToRead)
+        toRead.textContent = "To Read"
+        
+        read.setAttribute("class", "button");
+        read.addEventListener("click", addRead)
+        read.textContent = "Read Book"
+        
+        titleEl.textContent = title 
+        imageEl.setAttribute("src", image)
+        
+        cardTitleEl.appendChild(titleEl);
+        cardImgEl.appendChild(imageEl);
+        
+        card.appendChild(cardImgEl);
+        card.appendChild(cardTitleEl);
+        
+        card.appendChild(currentRead);
+        card.appendChild(toRead);
+        card.appendChild(read);
+        
+        currentRead.info = {
+            title, image 
         }
-    console.log(searchTerm);
 
-   /* for (var i = 0; i < data.length; i++) {
-        // append each person to our page
-        var results = document.createElement("div");
-        div.innerHTML = "Title" + data[i].title;
-        results.appendChild(resultEl);
+        resultEl.appendChild(card);
+        
+        
 
-        console.log("it works");
-      }
-      */
+    });
 
-} 
+};
+
+// functions to save to local storage
+function addtoCurrentRead(event) {
+    console.log(event.currentTarget.info);
+};
+
+function addToRead(event) {
+
+};
+
+function addRead(event) {
+    
+};
 
 
-
+// event listenters
 searchBtn.addEventListener("click", displaySearch);
+
 
