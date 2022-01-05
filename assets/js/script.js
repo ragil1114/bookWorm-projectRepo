@@ -92,18 +92,28 @@ var displaySearch = async function (event) {
 // functions to save to local storage
 function addtoCurrentRead(event) {
     console.log(event.currentTarget.info);
-
-    var volume = event.currentTarget.info;
-    console.log(volume);
+    var volume1 = event.currentTarget.info;
+    console.log(volume1);
     // console.log(JSON.stringify(volume));
-
-    localStorage.setItem("volume", JSON.stringify(volume));
-    localStorage.getItem("volume");
+    localStorage.setItem("volume1", JSON.stringify(volume1));
+    localStorage.getItem("volume1");
 };
 
-function addToRead(event) { }
+function addToRead(event) {
+    var volume2 = event.currentTarget.info;
+    localStorage.setItem("volume2", JSON.stringify(volume2));
+    localStorage.getItem("volume2");
+ };
 
-function addRead(event) { }
+function addRead(event) { 
+    var volume3 = event.currentTarget.info;
+    localStorage.setItem("volume3", JSON.stringify(volume3));
+    localStorage.getItem("volume3");
+};
+
+// function to display information in local storage to divs on my book page
+
+// function to display information in local storage to wishlist page
 
 // function to clear each book container
 
