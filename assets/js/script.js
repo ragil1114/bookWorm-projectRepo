@@ -104,12 +104,14 @@ function addtoCurrentRead(event) {
     localStorage.getItem("volume1");
 };
 
+
 function addToRead(event) {
     console.log(event.currentTarget.info);
     var volume2 = event.currentTarget.info;
     localStorage.setItem("volume2", JSON.stringify(volume2));
     localStorage.getItem("volume2");
- };
+};
+
 
 function addRead(event) { 
     console.log(event.currentTarget.info);
@@ -117,6 +119,7 @@ function addRead(event) {
     localStorage.setItem("volume3", JSON.stringify(volume3));
     localStorage.getItem("volume3");
 };
+
 
 // function to display information in local storage to divs on my-books page
 var localStorageDisplay = function() {
@@ -150,7 +153,7 @@ var displayBestSellers = async function () {
 
 var displayReviews = async function () {
     var NYTurl = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}`;
-
+    
     fetch(NYTurl)
         .then(response => response.json())
         .then((data) => {
@@ -167,6 +170,9 @@ var displayReviews = async function () {
 
 
 displayBestSellers();
+displayReviews();
+
+
 // function to display information in local storage to wishlist page
 
 // function to clear each book container

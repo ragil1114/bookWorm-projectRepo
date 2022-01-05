@@ -36,6 +36,13 @@ footer {
     margin-left: 10px;
 }
 
+.card-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
 .genre-container {
     padding: 10px;
     margin-top: 50px;
