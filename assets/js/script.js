@@ -100,18 +100,30 @@ function addtoCurrentRead(event) {
 };
 
 function addToRead(event) {
+    console.log(event.currentTarget.info);
     var volume2 = event.currentTarget.info;
     localStorage.setItem("volume2", JSON.stringify(volume2));
     localStorage.getItem("volume2");
  };
 
 function addRead(event) { 
+    console.log(event.currentTarget.info);
     var volume3 = event.currentTarget.info;
     localStorage.setItem("volume3", JSON.stringify(volume3));
     localStorage.getItem("volume3");
 };
 
-// function to display information in local storage to divs on my book page
+// function to display information in local storage to divs on my-books page
+var localStorageDisplay = function() {
+    
+    console.log("it works");
+
+    if(localStorage === 0) {
+        currentReadEl.textContent = "No books saved yet!";
+        return;
+    }
+};
+
 
 // function to display information in local storage to wishlist page
 
