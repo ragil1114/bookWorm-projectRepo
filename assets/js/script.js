@@ -2,9 +2,13 @@
 var searchBtn = document.querySelector("#search-btn");
 var resultEl = document.querySelector("#search-results");
 var myBookEl = document.querySelector("#my-book-container");
+var bookMonthEl = document.querySelector("#book-of-the-month")
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
+var bestsellersEl = document.getElementById("best-sellers-list");
+var NYTAPIKEY = "?api-key=TlaGcjpp9UjO8xLJiOFSmOKXPOu4M2Go";
+
 
 // function to display items from search bar
 var displaySearch = async function (event) {
@@ -16,6 +20,7 @@ var displaySearch = async function (event) {
 
     // change classes to display correct div
     myBookEl.setAttribute("class", "hide");
+    bookMonthEl.setAttribute("class", "hide");
     resultEl.removeAttribute("class");
 
     // console.log(endPoint);
@@ -87,24 +92,64 @@ var displaySearch = async function (event) {
     });
 };
 
+
 // functions to save to local storage
 function addtoCurrentRead(event) {
     console.log(event.currentTarget.info);
+    var volume1 = event.currentTarget.info;
+    console.log(volume1);
+    // console.log(JSON.stringify(volume));
+    localStorage.setItem("volume1", JSON.stringify(volume1));
+    localStorage.getItem("volume1");
+};
 
+function addToRead(event) {
+    console.log(event.currentTarget.info);
+    var volume2 = event.currentTarget.info;
+    localStorage.setItem("volume2", JSON.stringify(volume2));
+    localStorage.getItem("volume2");
+ };
+
+function addRead(event) { 
+    console.log(event.currentTarget.info);
+    var volume3 = event.currentTarget.info;
+    localStorage.setItem("volume3", JSON.stringify(volume3));
+    localStorage.getItem("volume3");
+};
+
+// function to display information in local storage to divs on my-books page
+var localStorageDisplay = function() {
     
+    console.log("it works");
 
-    localStorage.setItem("title", "title");
-    localStorage.getItem("title");
+    if(localStorage === 0) {
+        currentReadEl.textContent = "No books saved yet!";
+        return;
+    }
+};
 
-    
-}
 
-function addToRead(event) { }
+var displayBestSellers = async function () {
+    var NYTurl = `https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json${NYTAPIKEY}`;
 
-function addRead(event) { }
+    fetch(NYTurl)
+        .then(response => response.json())
+        .then((data) => {
+            var bestsellersList = data.results
+            for (let i = 0; i < 10; i++) {
+                let booktitle = bestsellersList[i].title;
+                let bookAuthor = bestsellersList[i].author;
+                var listItem = document.createElement('li');
+                listItem.textContent = `${booktitle} by ${bookAuthor}`;
+                bestsellersEl.appendChild(listItem)
+            } 
+        });
+};
+
+displayBestSellers();
+// function to display information in local storage to wishlist page
 
 // function to clear each book container
 
 // event listenters
 searchBtn.addEventListener("click", displaySearch);
-currentRead.addEventListener("click", addtoCurrentRead);
