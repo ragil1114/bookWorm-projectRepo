@@ -17,7 +17,7 @@
             <nav class="navbar-menu">
                 <ul class="navbar-start">
                     <li>
-                        <a href="./index.html" class="navbar-item">Explore</a>
+                        <a href="./index.html" class="navbar-item">Home</a>
                     </li>
                     <li>
                         <a href="./wishlist.html" class="navbar-item">Wishlist</a>
@@ -30,36 +30,53 @@
 
             <form>
                 <label for="search-bar">Search Books</label>
-                <input type="text" placeholder="Book Title" name="Title" id="Title" class="input is-success" />
+                <input type="text" placeholder="Book Title" name="title" id="title" class="input is-success" />
                 <button class="button is-success is-small" id="search-btn">Search:</button>
             </form>
         </header>
 
         <section class="section">
-            <p>Welcome to Book Worm where you can keep track of books you read and would like to read. Use the search bar to search by genre, author or topic! Check out our explore page for more genre options or get started tracking your own reading!</p>
+            <p>Welcome to Book Worm where you can keep track of books you read and would like to read. Use the search bar to
+                search by genre, author or topic! Check out our explore page for more genre options or get started tracking
+                your own reading!</p>
         </section>
 
         <main>
-            <section class="card has-background-grey-lighter">
-                <h2 class="card-header-title is-centered">Book of the Month:</h2>
-                <div class="card-image"></div>
-                <div class="card-content"><p>synopsis:</p></div>
+            <section class="card has-background-grey-lighter" id="book-of-the-month">
+                <h2 class="card-header-title is-centered">Book of the Month: A Flicker in the Dark</h2>
+                <div class="card-image"><img src="./assets/images/flicker-in-dark.jpg" alt="book cover image"></div>
+                <div class="card-content">
+                    <div class="content">
+                        <p>Synopsis:</p></br> 
+                        <p>When Chloe Davis was twelve, six teenage girls disappeared from her small Louisiana town and
+                            she was the crucial witness that convicted her father as a serial killer. As her wedding approaches,
+                            Chloe fears the past is repeating when teen girls start vanishing. Is she imagining the parallels to
+                            her past or is the past truly coming back to haunt her?
+                        </p></br>
+                        <p>A Flicker in the Dark is a great psychological thriller to kick off the new year. Chloe serves as an
+                            excellent unreliable narrator, perfectly toeing the line on believability. Are the meds and anxiety
+                            and trauma causing her to read too much into coincidences or is everything connected? Willingham
+                            times the revelations to heighten the tension, leaving you with plenty of twists and turns to give
+                            you a fast-paced read.
+                        </p>
+                    </div>
+                </div>
             </section>
 
-            <div class="genre-container">
+            <div class="genre-container" id="my-book-container">
                 <div class="best-sellers box">
                     <h2>Best Sellers</h2>
-                    <ol id = "best-sellers-list">
-                        
-                    </ol>
+                    <div class="block"></div>
+                    <ol id="best-sellers-list"></ol>
                 </div>
-                <div class="new-releases box">
-                    <h2>New Releases</h2>
-                </div>
-                <div class="resolution-reads box">
-                    <h2>New year... New you!</h2>
+                <div class="reviews box">
+                    <h2>Reviews</h2>
+                    <div class="block"></div>
+                    <ol id="reviews-list"></ol>
                 </div>
             </div>
+
+            <div class="container hide" id="search-results"></div>
 
         </main>
 

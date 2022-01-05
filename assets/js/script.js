@@ -7,6 +7,7 @@ var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
 var bestsellersEl = document.getElementById("best-sellers-list");
+var reviewsEl = document.getElementById("reviews-list");
 var NYTAPIKEY = "?api-key=TlaGcjpp9UjO8xLJiOFSmOKXPOu4M2Go";
 
 
@@ -136,7 +137,7 @@ var displayBestSellers = async function () {
         .then(response => response.json())
         .then((data) => {
             var bestsellersList = data.results
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 20; i++) {
                 let booktitle = bestsellersList[i].title;
                 let bookAuthor = bestsellersList[i].author;
                 var listItem = document.createElement('li');
@@ -145,6 +146,25 @@ var displayBestSellers = async function () {
             } 
         });
 };
+
+
+var displayReviews = async function () {
+    var NYTurl = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}`;
+
+    fetch(NYTurl)
+        .then(response => response.json())
+        .then((data) => {
+            var reviewsList = data.results
+            for (let i = 0; i < 10; i++) {
+                let booktitle = reviewsList[i].title;
+                let bookAuthor = reviewsList[i].author;
+                var listItem = document.createElement('li');
+                listItem.textContent = `${booktitle} by ${bookAuthor}`;
+                reviewsEl.appendChild(listItem)
+            } 
+        });
+};
+
 
 displayBestSellers();
 // function to display information in local storage to wishlist page
