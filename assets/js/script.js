@@ -91,13 +91,13 @@ var displaySearch = async function (event) {
 function addtoCurrentRead(event) {
     console.log(event.currentTarget.info);
 
-    
+    var volume = event.currentTarget.info;
+    console.log(volume);
+    // console.log(JSON.stringify(volume));
 
-    localStorage.setItem("title", "title");
-    localStorage.getItem("title");
-
-    
-}
+    localStorage.setItem("volume", JSON.stringify(volume));
+    localStorage.getItem("volume");
+};
 
 function addToRead(event) { }
 
@@ -107,4 +107,3 @@ function addRead(event) { }
 
 // event listenters
 searchBtn.addEventListener("click", displaySearch);
-currentRead.addEventListener("click", addtoCurrentRead);

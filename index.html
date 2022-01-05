@@ -30,7 +30,7 @@
 
         <form>
             <label for="search-bar">Search Books</label>
-            <input type="text" placeholder="Book Title" name="Title" id="Title" class="input is-success" />
+            <input type="text" placeholder="Book Title" name="title" id="title" class="input is-success" />
             <button class="button is-success is-small" id="search-btn">Search:</button>
         </form>
     </header>
@@ -46,7 +46,7 @@
             <div class="card-content"><p>synopsis:</p></div>
         </section>
 
-        <div class="genre-container">
+        <div class="genre-container" id="my-book-container">
             <div class="best-sellers box">
                 <h2>Best Sellers</h2>
             </div>
@@ -57,6 +57,8 @@
                 <h2>New year... New you!</h2>
             </div>
         </div>
+
+        <div class="container hide" id="search-results"></div>
 
     </main>
 
