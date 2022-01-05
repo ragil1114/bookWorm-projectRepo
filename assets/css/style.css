@@ -42,6 +42,11 @@ footer {
     align-items: stretch;
 }
 
+.currently-reading {
+    padding: 25px;
+    margin: 20px;
+}
+
 .navbar-menu {
     padding-left: 20px;
 }
