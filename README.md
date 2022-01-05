@@ -11,7 +11,7 @@ Bookworm is a simple web application for book choice reccomendations. The goal o
 ### Technologies Used
 - Bulma 
 - JQuery
-- Google Books API
+- Google Book API
 - HTML
 - CSS
 - Javascript
