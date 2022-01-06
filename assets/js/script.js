@@ -96,9 +96,7 @@ var displaySearch = async function (event) {
 
 // functions to save to local storage
 function addtoCurrentRead(event) {
-    console.log(event.currentTarget.info);
     var volume1 = event.currentTarget.info;
-    console.log(volume1);
     // console.log(JSON.stringify(volume));
     localStorage.setItem("volume1", JSON.stringify(volume1));
     localStorage.getItem("volume1");
@@ -132,7 +130,12 @@ var localStorageDisplay = function() {
     }
 };
 
-localStorage.setItem("myBooks")
+function passValues() {
+    var bookTitle=document.getElementById("title").value;
+    localStorage.setItem("currentlyReading",bookTitle);
+    window.location.href="./mybooks.html"
+    return false;
+}
 
 var displayBestSellers = async function () {
     var NYTurl = `https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json${NYTAPIKEY}`;
