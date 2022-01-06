@@ -2,12 +2,15 @@
 var searchBtn = document.querySelector("#search-btn");
 var resultEl = document.querySelector("#search-results");
 var myBookEl = document.querySelector("#my-book-container");
-var bookMonthEl = document.querySelector("#book-of-the-month")
+var bookMonthEl = document.querySelector("#book-of-the-month");
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
 var bestsellersEl = document.getElementById("best-sellers-list");
 var reviewsEl = document.getElementById("reviews-list");
+var reviewsFormEl = document.getElementById("reviews-form");
+var reviewsBtnEl = document.getElementById("reviews-btn");
+var reviewsInput = document.getElementById("reviews-search");
 var NYTAPIKEY = "?api-key=TlaGcjpp9UjO8xLJiOFSmOKXPOu4M2Go";
 
 
@@ -140,7 +143,7 @@ var displayBestSellers = async function () {
         .then(response => response.json())
         .then((data) => {
             var bestsellersList = data.results
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 10; i++) {
                 let booktitle = bestsellersList[i].title;
                 let bookAuthor = bestsellersList[i].author;
                 var listItem = document.createElement('li');
@@ -151,27 +154,24 @@ var displayBestSellers = async function () {
 };
 
 
-var displayReviews = async function () {
-    var NYTurl = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}`;
+var displayReviews =  async function (event) {
+    event.preventDefault();
+
+    var reviewSearch = reviewsInput.value.trim();
+    console.log(reviewSearch)
+
+    var reviewsURL = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}`;
     
-    fetch(NYTurl)
+    fetch(reviewsURL)
         .then(response => response.json())
         .then((data) => {
-            var reviewsList = data.results
-            for (let i = 0; i < 10; i++) {
-                let booktitle = reviewsList[i].title;
-                let bookAuthor = reviewsList[i].author;
-                var listItem = document.createElement('li');
-                listItem.textContent = `${booktitle} by ${bookAuthor}`;
-                reviewsEl.appendChild(listItem)
-            } 
+            console.log(data)
         });
 };
 
 
 displayBestSellers();
-displayReviews();
-
+reviewsBtnEl.addEventListener('click', displayReviews)
 
 // function to display information in local storage to wishlist page
 
