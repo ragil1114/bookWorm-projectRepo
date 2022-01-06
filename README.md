@@ -1,6 +1,24 @@
 # bookWorm
+Bookworm is a simple web application for book choice reccomendations. The goal of the app is for the user to be able to search for books by title, author, and genre. Users will be able to add books to their bookshelf for what they have read, what they are currently reading, and what they would like to read on their wishlist.
 
-## Project Requirements
+
+## Contributors
+- Rahil Gilani
+- Jeffery Gerlach
+- Mallorie Flanigan
+
+
+### Technologies Used
+- Bulma 
+- JQuery
+- Google Books API
+- NYT Books API
+- HTML
+- CSS
+- Javascript
+
+
+#### Project Requirements
 Use a CSS framework other than Bootstrap.
 
 Be deployed to GitHub Pages.
@@ -22,7 +40,7 @@ Have a clean repository that meets quality coding standards (file structure, nam
 Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
 
-### Presentation Requirements
+##### Presentation Requirements
 Elevator pitch: A one-minute description of your application.
 
 Concept: What is your user story? What was your motivation for development?
@@ -36,8 +54,13 @@ Directions for future development.
 Links to the deployed application and the GitHub repository.
 
 
-#### Links
+###### Links
 GitHub:
 https://github.com/ragil1114/bookWorm-projectRepo.git
 
 Website URL:
+https://ragil1114.github.io/bookWorm-projectRepo/
+
+
+###### Images
+(Screenshot links go here)

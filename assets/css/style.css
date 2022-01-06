@@ -1,0 +1,67 @@
+:root {
+    --primary: #fff;
+    --secondary: #dbdbdb;
+    --tertiary: #48c78e;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background: var(--tertiary);
+    padding: 10px;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    text-align: center;
+    background: var(--tertiary);
+    width: 100%;
+    padding: 40px 35px;
+    display: flex; /* adds flexbox to footer */
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 400px;
+    padding: 10px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+.card-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.genre-container {
+    padding: 10px;
+    margin-top: 50px;
+    align-items: stretch;
+}
+
+.currently-reading {
+    padding: 25px;
+    margin: 20px;
+}
+
+.navbar-menu {
+    padding-left: 20px;
+}
+
+.hide {
+    display: none;
+}
