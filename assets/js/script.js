@@ -6,6 +6,7 @@ var bookMonthEl = document.querySelector("#book-of-the-month")
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
+var WishListEl = document.querySelector(".WishList");
 var bestsellersEl = document.getElementById("best-sellers-list");
 var reviewsEl = document.getElementById("reviews-list");
 var NYTAPIKEY = "?api-key=TlaGcjpp9UjO8xLJiOFSmOKXPOu4M2Go";
@@ -50,6 +51,7 @@ var displaySearch = async function (event) {
         var currentRead = document.createElement("button");
         var toRead = document.createElement("button");
         var read = document.createElement("button");
+        var WishList = document.createElement('button'); 
 
         card.setAttribute("class", "card");
         cardTitleEl.setAttribute("class", "card-content");
@@ -70,6 +72,11 @@ var displaySearch = async function (event) {
         read.addEventListener("click", addRead);
         read.textContent = "Read Book";
 
+        // add wishlist button to search page 
+        WishList.setAttribute("class", "button");
+        WishList.addEventListener("click", addToWishList);
+        WishList.textContent = "Add to Wishlist";
+
         titleEl.textContent = title;
         imageEl.setAttribute("src", image);
 
@@ -83,6 +90,7 @@ var displaySearch = async function (event) {
         card.appendChild(currentRead);
         card.appendChild(toRead);
         card.appendChild(read);
+        card.appendChild(WishList);
 
         currentRead.info = {
             title,
@@ -98,13 +106,13 @@ var displaySearch = async function (event) {
 function addtoCurrentRead(event) {
     var volume1 = event.currentTarget.info;
     // console.log(JSON.stringify(volume));
-    localStorage.setItem("volume1", JSON.stringify(volume1));
-    localStorage.getItem("volume1");
+    window.localStorage.setItem("volume1", JSON.stringify(volume1));
+    window.localStorage.getItem("volume1");
+    
 };
 
 
 function addToRead(event) {
-    console.log(event.currentTarget.info);
     var volume2 = event.currentTarget.info;
     localStorage.setItem("volume2", JSON.stringify(volume2));
     localStorage.getItem("volume2");
@@ -112,10 +120,15 @@ function addToRead(event) {
 
 
 function addRead(event) { 
-    console.log(event.currentTarget.info);
     var volume3 = event.currentTarget.info;
     localStorage.setItem("volume3", JSON.stringify(volume3));
     localStorage.getItem("volume3");
+};
+
+function addToWishList(event) { 
+    var volume4 = event.currentTarget.info;
+    localStorage.setItem("volume4", JSON.stringify(volume4));
+    localStorage.getItem("volume4");
 };
 
 
