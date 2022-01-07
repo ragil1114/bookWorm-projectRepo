@@ -27,6 +27,13 @@ main {
     align-items: center; /* This property follows the Cross Axis. In this case it vertically centers the content. */
 }
 
+.navbar-item {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 15px;
+    text-shadow: none;
+}
+
 .search-form {
     display: flex;
     flex-wrap: wrap;
