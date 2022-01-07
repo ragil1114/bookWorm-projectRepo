@@ -54,9 +54,27 @@ footer {
     margin: 20px;
 }
 
+.dropdown-item {
+    opacity: .7;
+    text-decoration: none;
+    display: none;
+    background-color: #48c78e;
+    border-radius: 4px;
+}
+
+.dropdown-item:hover {
+    transition: .2s; 
+}
+
+.navbar-menu:hover .dropdown-item {
+    display: block;
+    transition: .2s;
+}
+
 .navbar-menu {
     padding-left: 20px;
 }
+
 
 .hide {
     display: none;

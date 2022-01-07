@@ -141,6 +141,7 @@ var localStorageDisplay = function() {
         currentReadEl.textContent = "No books saved yet!";
         return;
     }
+    console.log
 };
 
 function passValues() {
