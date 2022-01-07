@@ -15,8 +15,22 @@ main {
     justify-content: space-between;
     background: var(--tertiary);
     padding: 10px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
+.navbar-menu {
+    background: var(--tertiary);
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between; /* This property follows the Main Axis. */
+    align-items: center; /* This property follows the Cross Axis. In this case it vertically centers the content. */
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 body {
     margin: 0;
