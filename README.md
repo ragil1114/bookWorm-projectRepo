@@ -1,31 +1,12 @@
-<<<<<<< HEAD
-# Bookworm Project
-
-Bookworm is a simple web application for book choice recomendations. The goal of the app is for the user to be able to search for books by title, author, and genre. Users will be able to add books to their bookshelf for what they have read, what they are currently reading, and what they would like to read on their wishlist.
-
-## Requirements
-=======
 # bookWorm
 Bookworm is a simple web application for book choice reccomendations. The goal of the app is for the user to be able to search for books by title, author, and genre. Users will be able to add books to their bookshelf for what they have read, what they are currently reading, and what they would like to read on their wishlist.
 
->>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 
 ## Contributors
 - Rahil Gilani
 - Jeffery Gerlach
 - Mallorie Flanigan
 
-<<<<<<< HEAD
-## Technologies Used:
-- Bulma for CSS
-- Jquery
-- API 1
-- API 2
-
-## Link:
-
-## ScreenShots:
-=======
 
 ### Technologies Used
 - Bulma 
@@ -83,4 +64,3 @@ https://ragil1114.github.io/bookWorm-projectRepo/
 
 ###### Images
 (Screenshot links go here)
->>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d

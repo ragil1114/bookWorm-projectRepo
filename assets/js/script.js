@@ -2,12 +2,6 @@
 var searchBtn = document.querySelector("#search-btn");
 var resultEl = document.querySelector("#search-results");
 var myBookEl = document.querySelector("#my-book-container");
-<<<<<<< HEAD
-var bookMonthEl = document.querySelector("#book-of-the-month")
-var currentReadEl = document.querySelector(".currently-reading");
-var toReadEl = document.querySelector(".to-read-list");
-var readEl = document.querySelector(".read-list");
-=======
 var bookMonthEl = document.querySelector("#book-of-the-month");
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
@@ -19,7 +13,6 @@ var reviewsBtnEl = document.getElementById("reviews-btn");
 var reviewsInput = document.getElementById("reviews-search");
 var NYTAPIKEY = "?api-key=TlaGcjpp9UjO8xLJiOFSmOKXPOu4M2Go";
 
->>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 
 // function to display items from search bar
 var displaySearch = async function (event) {
@@ -103,10 +96,6 @@ var displaySearch = async function (event) {
     });
 };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 // functions to save to local storage
 function addtoCurrentRead(event) {
     console.log(event.currentTarget.info);
@@ -117,21 +106,13 @@ function addtoCurrentRead(event) {
     localStorage.getItem("volume1");
 };
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 function addToRead(event) {
     console.log(event.currentTarget.info);
     var volume2 = event.currentTarget.info;
     localStorage.setItem("volume2", JSON.stringify(volume2));
     localStorage.getItem("volume2");
-<<<<<<< HEAD
- };
-=======
 };
 
->>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 
 function addRead(event) { 
     console.log(event.currentTarget.info);
@@ -140,15 +121,6 @@ function addRead(event) {
     localStorage.getItem("volume3");
 };
 
-<<<<<<< HEAD
-// function to save in local storage to divs on my-books page
-var localStorageDisplay = function() {
-    
-};
-
-
-
-=======
 
 // function to display information in local storage to divs on my-books page
 var localStorageDisplay = function() {
@@ -198,21 +170,10 @@ var displayReviews =  async function (event) {
 
 displayBestSellers();
 reviewsBtnEl.addEventListener('click', displayReviews)
->>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 
 // function to display information in local storage to wishlist page
 
 // function to clear each book container
-<<<<<<< HEAD
-// clearBtn.addEventListener("click", function(){
-//     localStorage.clear();
-//     document.getElementById("scores-table").innerHTML="";
-// });
 
 // event listenters
 searchBtn.addEventListener("click", displaySearch);
-=======
-
-// event listenters
-searchBtn.addEventListener("click", displaySearch);
->>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
