@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,5 +69,72 @@
 
     <script src="./assets/js/script.js"></script>
 </body>
+=======
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <title>My Books</title>
+    </head>
+
+    <body>
+        <header class="navbar" role="navigation aria" aria-label="main navigation">
+            <h1 class="title is-1">Book Worm</h1>
+            <nav class="navbar-menu">
+                <ul class="navbar-start">
+                    <li>
+                        <a href="./index.html" class="navbar-item">Home</a>
+                    </li>
+                    <li>
+                        <a href="./index.html" class="navbar-item">Explore</a>
+                    </li>
+                    <li>
+                        <a href="./wishlist.html" class="navbar-item">Wishlist</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <form>
+                <label for="search-bar">Search Books:</label>
+                <input type="text" placeholder="Book Title" name="title" id="title" class="input is-success" />
+                <button class="button is-small" id="search-btn">Search:</button>
+            </form>
+        </header>
+
+        <main>
+            <div class="container mt-4" id="my-book-container">
+                <h1 class="title is-2">My Books:</h1>
+                <div class="box">
+                    <h2>Currently Reading:</h2>
+                    <div class="currenty-reading block"></div>
+                    <button class="button is-success is-small is-outlined" id="clear-btn">Clear</button>
+                </div>
+                <div class="box">
+                    <h2>To Read:</h2>
+                    <div class="to-read-list block"></div>
+                    <button class="button is-success is-small is-outlined" id="clear-btn">Clear</button>
+                </div>
+                <div class="box">
+                    <h2>Read:</h2>
+                    <div class="read-list block"></div>
+                    <button class="button is-success is-small is-outlined" id="clear-btn">Clear</button>
+                </div>
+            </div>
+
+            <div class="container hide" id="search-results"></div>
+            
+        </main>
+
+        <footer>
+            <div>
+                &copy; 2021 Book Worm, Inc.
+            </div>
+        </footer>
+
+        <script src="./assets/js/script.js"></script>
+    </body>
+>>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 
 </html>

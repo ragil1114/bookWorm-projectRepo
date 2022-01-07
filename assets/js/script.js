@@ -2,10 +2,24 @@
 var searchBtn = document.querySelector("#search-btn");
 var resultEl = document.querySelector("#search-results");
 var myBookEl = document.querySelector("#my-book-container");
+<<<<<<< HEAD
 var bookMonthEl = document.querySelector("#book-of-the-month")
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
+=======
+var bookMonthEl = document.querySelector("#book-of-the-month");
+var currentReadEl = document.querySelector(".currently-reading");
+var toReadEl = document.querySelector(".to-read-list");
+var readEl = document.querySelector(".read-list");
+var bestsellersEl = document.getElementById("best-sellers-list");
+var reviewsEl = document.getElementById("reviews-list");
+var reviewsFormEl = document.getElementById("reviews-form");
+var reviewsBtnEl = document.getElementById("reviews-btn");
+var reviewsInput = document.getElementById("reviews-search");
+var NYTAPIKEY = "?api-key=TlaGcjpp9UjO8xLJiOFSmOKXPOu4M2Go";
+
+>>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 
 // function to display items from search bar
 var displaySearch = async function (event) {
@@ -89,6 +103,10 @@ var displaySearch = async function (event) {
     });
 };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 // functions to save to local storage
 function addtoCurrentRead(event) {
     console.log(event.currentTarget.info);
@@ -99,12 +117,21 @@ function addtoCurrentRead(event) {
     localStorage.getItem("volume1");
 };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 function addToRead(event) {
     console.log(event.currentTarget.info);
     var volume2 = event.currentTarget.info;
     localStorage.setItem("volume2", JSON.stringify(volume2));
     localStorage.getItem("volume2");
+<<<<<<< HEAD
  };
+=======
+};
+
+>>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 
 function addRead(event) { 
     console.log(event.currentTarget.info);
@@ -113,6 +140,7 @@ function addRead(event) {
     localStorage.getItem("volume3");
 };
 
+<<<<<<< HEAD
 // function to save in local storage to divs on my-books page
 var localStorageDisplay = function() {
     
@@ -120,10 +148,62 @@ var localStorageDisplay = function() {
 
 
 
+=======
+
+// function to display information in local storage to divs on my-books page
+var localStorageDisplay = function() {
+    
+    console.log("it works");
+
+    if(localStorage === 0) {
+        currentReadEl.textContent = "No books saved yet!";
+        return;
+    }
+};
+
+
+var displayBestSellers = async function () {
+    var NYTurl = `https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json${NYTAPIKEY}`;
+
+    fetch(NYTurl)
+        .then(response => response.json())
+        .then((data) => {
+            var bestsellersList = data.results
+            for (let i = 0; i < 10; i++) {
+                let booktitle = bestsellersList[i].title;
+                let bookAuthor = bestsellersList[i].author;
+                var listItem = document.createElement('li');
+                listItem.textContent = `${booktitle} by ${bookAuthor}`;
+                bestsellersEl.appendChild(listItem)
+            } 
+        });
+};
+
+
+var displayReviews =  async function (event) {
+    event.preventDefault();
+
+    var reviewSearch = reviewsInput.value.trim();
+    console.log(reviewSearch)
+
+    var reviewsURL = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}`;
+    
+    fetch(reviewsURL)
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data)
+        });
+};
+
+
+displayBestSellers();
+reviewsBtnEl.addEventListener('click', displayReviews)
+>>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
 
 // function to display information in local storage to wishlist page
 
 // function to clear each book container
+<<<<<<< HEAD
 // clearBtn.addEventListener("click", function(){
 //     localStorage.clear();
 //     document.getElementById("scores-table").innerHTML="";
@@ -131,3 +211,8 @@ var localStorageDisplay = function() {
 
 // event listenters
 searchBtn.addEventListener("click", displaySearch);
+=======
+
+// event listenters
+searchBtn.addEventListener("click", displaySearch);
+>>>>>>> 02af5a8feb3d02ed7e2a52f86ed9b58d0177438d
