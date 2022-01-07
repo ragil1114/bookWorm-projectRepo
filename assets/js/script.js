@@ -160,12 +160,19 @@ var displayReviews =  async function (event) {
     var reviewSearch = reviewsInput.value.trim();
     console.log(reviewSearch)
 
-    var reviewsURL = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}`;
+    var reviewsURL = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}&title=${reviewSearch}`;
     
     fetch(reviewsURL)
         .then(response => response.json())
         .then((data) => {
-            console.log(data)
+           console.log(data)
+           for (let i = 0; i < 10; i++) {
+                let booktitle = reviewsList[i].title;
+                let bookAuthor = reviewsList[i].author;
+                var listItem = document.createElement('li');
+                listItem.textContent = `${booktitle} by ${bookAuthor}`;
+                reviewsEl.appendChild(listItem)
+            } 
         });
 };
 
