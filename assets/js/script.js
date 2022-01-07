@@ -113,21 +113,21 @@ function addRead(event) {
     localStorage.getItem("volume3");
 };
 
-// function to display information in local storage to divs on my-books page
+// function to save in local storage to divs on my-books page
 var localStorageDisplay = function() {
     
-    console.log("it works");
-
-    if(localStorage === 0) {
-        currentReadEl.textContent = "No books saved yet!";
-        return;
-    }
 };
+
+
 
 
 // function to display information in local storage to wishlist page
 
 // function to clear each book container
+// clearBtn.addEventListener("click", function(){
+//     localStorage.clear();
+//     document.getElementById("scores-table").innerHTML="";
+// });
 
 // event listenters
 searchBtn.addEventListener("click", displaySearch);
