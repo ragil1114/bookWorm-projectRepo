@@ -120,7 +120,6 @@ var displaySearch = async function (event) {
     });
 };
 
-
 // functions to save to local storage
 function addtoCurrentRead(event) {
     console.log(event.currentTarget.info);
@@ -130,13 +129,11 @@ function addtoCurrentRead(event) {
     localStorage.setItem("volume1", JSON.stringify(volume1));
 };
 
-
 function addToRead(event) {
     console.log(event.currentTarget.info);
     var volume2 = event.currentTarget.info;
     localStorage.setItem("volume2", JSON.stringify(volume2));
 };
-
 
 function addRead(event) { 
     console.log(event.currentTarget.info);
@@ -150,17 +147,135 @@ function addtoWishList(event) {
     localStorage.setItem("volume4", JSON.stringify(volume4));
 };
 
+// function to display information in local storage to currently reading
+window.addEventListener('load',
+    function () {
+        var volume1data = JSON.parse(localStorage.getItem("volume1"));
 
-// function to display information in local storage to divs on my-books page
-var localStorageDisplay = function() {
-    
-    console.log("it works");
+        var title = volume1data.title;
+        var image = volume1data.image;
 
-    if(localStorage === 0) {
-        currentReadEl.textContent = "No books saved yet!";
-        return;
+        var titleEl = document.createElement("h3");
+        var imageEl = document.createElement("img");
+        var card = document.createElement("div");
+
+        var cardTitleEl = document.createElement("div");
+        var cardImgEl = document.createElement("div");
+
+        card.setAttribute("class", "card");
+        cardTitleEl.setAttribute("class", "card-content");
+        cardImgEl.setAttribute("class", "card-image");
+
+        titleEl.textContent = title;
+        imageEl.setAttribute("src", image);
+
+        cardTitleEl.appendChild(titleEl);
+        cardImgEl.appendChild(imageEl);
+
+        card.appendChild(cardImgEl);
+        card.appendChild(cardTitleEl);
+
+        currentReadEl.appendChild(card);
     }
-};
+);
+
+// function to display information in local storage to read
+window.addEventListener('load',
+    function () {
+        var volume2data = JSON.parse(localStorage.getItem("volume2"));
+
+        var title = volume2data.title;
+        var image = volume2data.image;
+
+        var titleEl = document.createElement("h3");
+        var imageEl = document.createElement("img");
+        var card = document.createElement("div");
+
+        var cardTitleEl = document.createElement("div");
+        var cardImgEl = document.createElement("div");
+
+        card.setAttribute("class", "card");
+        cardTitleEl.setAttribute("class", "card-content");
+        cardImgEl.setAttribute("class", "card-image");
+
+        titleEl.textContent = title;
+        imageEl.setAttribute("src", image);
+
+        cardTitleEl.appendChild(titleEl);
+        cardImgEl.appendChild(imageEl);
+
+        card.appendChild(cardImgEl);
+        card.appendChild(cardTitleEl);
+
+        toReadEl.appendChild(card);
+    }
+);
+
+// function to display from local storage to "read" section
+window.addEventListener('load',
+    function () {
+        var volume3data = JSON.parse(localStorage.getItem("volume3"));
+
+        var title = volume3data.title;
+        var image = volume3data.image;
+
+        var titleEl = document.createElement("h3");
+        var imageEl = document.createElement("img");
+        var card = document.createElement("div");
+
+        var cardTitleEl = document.createElement("div");
+        var cardImgEl = document.createElement("div");
+
+        card.setAttribute("class", "card");
+        cardTitleEl.setAttribute("class", "card-content");
+        cardImgEl.setAttribute("class", "card-image");
+
+        titleEl.textContent = title;
+        imageEl.setAttribute("src", image);
+
+        cardTitleEl.appendChild(titleEl);
+        cardImgEl.appendChild(imageEl);
+
+        card.appendChild(cardImgEl);
+        card.appendChild(cardTitleEl);
+
+        readEl.appendChild(card);
+    }
+);
+
+// wishlist storage display
+window.addEventListener('load',
+    function () {
+        var volume4data = JSON.parse(localStorage.getItem("volume4"));
+
+        var title = volume4data.title;
+        var image = volume4data.image;
+
+        var titleEl = document.createElement("h3");
+        var imageEl = document.createElement("img");
+        var card = document.createElement("div");
+
+        var cardTitleEl = document.createElement("div");
+        var cardImgEl = document.createElement("div");
+
+        card.setAttribute("class", "card");
+        cardTitleEl.setAttribute("class", "card-content");
+        cardImgEl.setAttribute("class", "card-image");
+
+        titleEl.textContent = title;
+        imageEl.setAttribute("src", image);
+
+        cardTitleEl.appendChild(titleEl);
+        cardImgEl.appendChild(imageEl);
+
+        card.appendChild(cardImgEl);
+        card.appendChild(cardTitleEl);
+
+        wishListEl.appendChild(card);
+
+
+    }
+);
 
 
 var displayBestSellers = async function () {
@@ -179,7 +294,6 @@ var displayBestSellers = async function () {
             } 
         });
 };
-
 
 var displayReviews =  async function (event) {
     event.preventDefault();
