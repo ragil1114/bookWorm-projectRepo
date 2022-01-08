@@ -329,7 +329,7 @@ displayBestSellers();
 
 
 // function to clear each book container
-clearBtn.addEventListener("click", function(){
+clearBtn.addEventListener("click", function() {
     localStorage.clear();
     document.getElementsByClassName("storage-container").innerHTML="";
     window.location.reload();
