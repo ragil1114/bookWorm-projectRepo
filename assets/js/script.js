@@ -94,6 +94,7 @@ var displaySearch = async function (event) {
         card.appendChild(currentRead);
         card.appendChild(toRead);
         card.appendChild(read);
+        card.appendChild(wishList);
 
         currentRead.info = {
             title,
