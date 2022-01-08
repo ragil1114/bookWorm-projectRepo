@@ -128,7 +128,6 @@ function addtoCurrentRead(event) {
     console.log(volume1);
     // console.log(JSON.stringify(volume));
     localStorage.setItem("volume1", JSON.stringify(volume1));
-    localStorage.getItem("volume1");
 };
 
 
@@ -136,7 +135,6 @@ function addToRead(event) {
     console.log(event.currentTarget.info);
     var volume2 = event.currentTarget.info;
     localStorage.setItem("volume2", JSON.stringify(volume2));
-    localStorage.getItem("volume2");
 };
 
 
@@ -144,7 +142,12 @@ function addRead(event) {
     console.log(event.currentTarget.info);
     var volume3 = event.currentTarget.info;
     localStorage.setItem("volume3", JSON.stringify(volume3));
-    localStorage.getItem("volume3");
+};
+
+function addtoWishList(event) {
+    console.log(event.currentTarget.info);
+    var volume4 = event.currentTarget.info;
+    localStorage.setItem("volume4", JSON.stringify(volume4));
 };
 
 
