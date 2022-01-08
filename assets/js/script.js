@@ -103,7 +103,6 @@ function addtoCurrentRead(event) {
     console.log(volume1);
     // console.log(JSON.stringify(volume));
     localStorage.setItem("volume1", JSON.stringify(volume1));
-    localStorage.getItem("volume1");
 };
 
 function addToRead(event) {
@@ -114,64 +113,102 @@ function addToRead(event) {
 };
 
 
-function addRead(event) { 
+function addRead(event) {
     console.log(event.currentTarget.info);
     var volume3 = event.currentTarget.info;
     localStorage.setItem("volume3", JSON.stringify(volume3));
     localStorage.getItem("volume3");
 };
 
+// function to display information in local storage to mybook page
+window.addEventListener('load',
+    function () {
+        var volume1data = JSON.parse(localStorage.getItem("volume1"));
+        console.log(volume1data);
+        
 
-// function to display information in local storage to divs on my-books page
-var localStorageDisplay = function() {
-    
-    console.log("it works");
+        volume1data.forEach(function (currentReadEl) {
+            var title = item.volumeInfo.title;
+            var image = item.volumeInfo.imageLinks.thumbnail;
 
-    if(localStorage === 0) {
-        currentReadEl.textContent = "No books saved yet!";
-        return;
+            var titleEl = document.createElement("h3");
+            var imageEl = document.createElement("img");
+            var card = document.createElement("div");
+
+            var cardTitleEl = document.createElement("div");
+            var cardImgEl = document.createElement("div");
+
+            card.setAttribute("class", "card");
+            cardTitleEl.setAttribute("class", "card-content");
+            cardImgEl.setAttribute("class", "card-image");
+
+            titleEl.textContent = title;
+            imageEl.setAttribute("src", image);
+
+            cardTitleEl.appendChild(titleEl);
+            cardImgEl.appendChild(imageEl);
+
+            card.appendChild(cardImgEl);
+            card.appendChild(cardTitleEl);
+
+            currentReadEl.appendChild(card);
+
+        })
     }
-};
+);
 
 
-var displayBestSellers = async function () {
-    var NYTurl = `https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json${NYTAPIKEY}`;
+// // function to display information in local storage to divs on my-books page
+// var localStorageDisplay = function() {
 
-    fetch(NYTurl)
-        .then(response => response.json())
-        .then((data) => {
-            var bestsellersList = data.results
-            for (let i = 0; i < 10; i++) {
-                let booktitle = bestsellersList[i].title;
-                let bookAuthor = bestsellersList[i].author;
-                var listItem = document.createElement('li');
-                listItem.textContent = `${booktitle} by ${bookAuthor}`;
-                bestsellersEl.appendChild(listItem)
-            } 
-        });
-};
+//     console.log("it works");
+
+//     if(localStorage === 0) {
+//         currentReadEl.textContent = "No books saved yet!";
+//         return;
+//     }
+// };
 
 
-var displayReviews =  async function (event) {
-    event.preventDefault();
+// var displayBestSellers = async function () {
+//     var NYTurl = `https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json${NYTAPIKEY}`;
 
-    var reviewSearch = reviewsInput.value.trim();
-    console.log(reviewSearch)
+//     fetch(NYTurl)
+//         .then(response => response.json())
+//         .then((data) => {
+//             var bestsellersList = data.results
+//             for (let i = 0; i < 10; i++) {
+//                 let booktitle = bestsellersList[i].title;
+//                 let bookAuthor = bestsellersList[i].author;
+//                 var listItem = document.createElement('li');
+//                 listItem.textContent = `${booktitle} by ${bookAuthor}`;
+//                 bestsellersEl.appendChild(listItem)
+//             } 
+//         });
+// };
 
-    var reviewsURL = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}`;
-    
-    fetch(reviewsURL)
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data)
-        });
-};
+
+// var displayReviews =  async function (event) {
+//     event.preventDefault();
+
+//     var reviewSearch = reviewsInput.value.trim();
+//     console.log(reviewSearch)
+
+//     var reviewsURL = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}`;
+
+//     fetch(reviewsURL)
+//         .then(response => response.json())
+//         .then((data) => {
+//             console.log(data)
+//         });
+// };
 
 
-displayBestSellers();
-reviewsBtnEl.addEventListener('click', displayReviews)
+// displayBestSellers();
+// reviewsBtnEl.addEventListener('click', displayReviews)
 
-// function to display information in local storage to wishlist page
+
+
 
 // function to clear each book container
 
