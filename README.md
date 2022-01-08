@@ -63,7 +63,7 @@ https://ragil1114.github.io/bookWorm-projectRepo/
 
 
 ###### Images
-demo.png
+![demo](https://github.com/ragil1114/bookWorm-projectRepo/blob/main/assets/images/demo.png)
 demo2.png
 demo3.png
 demo4.png
