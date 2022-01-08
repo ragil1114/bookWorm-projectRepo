@@ -165,13 +165,18 @@ var displayReviews =  async function (event) {
     fetch(reviewsURL)
         .then(response => response.json())
         .then((data) => {
-           console.log(data)
-           for (let i = 0; i < 10; i++) {
-                let booktitle = reviewsList[i].title;
-                let bookAuthor = reviewsList[i].author;
+           console.log(data.results);
+           for (let i = 0; i < data.results.length; i++) {
+                let booktitle = data.results[i].book_title;
+                let bookAuthor = data.results[i].book_author;
+                let bookURL = data.results[i].url;
                 var listItem = document.createElement('li');
-                listItem.textContent = `${booktitle} by ${bookAuthor}`;
+                listItem.textContent = `${booktitle} by ${bookAuthor} ${bookURL}`;
                 reviewsEl.appendChild(listItem)
+                
+                var bookurlEl = document.createElement('a');
+                bookurlEl.reviewsList = 'list-item flex-row justify-space-between align-center';
+                bookurlEl.setAttribute('href', './index.html?url=');
             } 
         });
 };
