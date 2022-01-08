@@ -13,10 +13,30 @@ main {
 .navbar {
     display: flex;
     justify-content: space-between;
-    background: var(--secondary);
+    background: var(--tertiary);
     padding: 10px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
+.navbar-menu {
+    background: var(--tertiary);
+    display: flex;
+    justify-content: space-between; /* This property follows the Main Axis. */
+    align-items: center; /* This property follows the Cross Axis. In this case it vertically centers the content. */
+}
+
+.navbar-item {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 15px;
+    text-shadow: none;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 body {
     margin: 0;
@@ -25,9 +45,13 @@ body {
 
 footer {
     text-align: center;
-    padding-top: 50px;
+    background: var(--tertiary);
+    width: 100%;
+    padding: 40px 35px;
+    display: flex; /* adds flexbox to footer */
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
-
 
 .card {
     width: 400px;
@@ -54,27 +78,9 @@ footer {
     margin: 20px;
 }
 
-.dropdown-item {
-    opacity: .7;
-    text-decoration: none;
-    display: none;
-    background-color: #48c78e;
-    border-radius: 4px;
-}
-
-.dropdown-item:hover {
-    transition: .2s; 
-}
-
-.navbar-menu:hover .dropdown-item {
-    display: block;
-    transition: .2s;
-}
-
 .navbar-menu {
     padding-left: 20px;
 }
-
 
 .hide {
     display: none;

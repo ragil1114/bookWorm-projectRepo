@@ -11,33 +11,13 @@
     </head>
 
     <body>
-        <header class="navbar">
+        <header class="navbar is-flex-direction-row">
             <h1 class="title is-1 display-1">Book Worm</h1>
 
             <nav class="navbar-menu">
                 <ul class="navbar-start">
                     <li>
                         <a href="./index.html" class="navbar-item">Home</a>
-                    </li>
-                    <li>
-                      <a href="./explore.html" class="navbar-item">Explore</a>
-                      <ul>
-                          <li>
-                              <a href="./art&Photo.html" class="dropdown-item">Art & Photography</a>
-                          </li>
-                          <li>
-                            <a href="./Biographies.html" class="dropdown-item">Biography</a>
-                        </li>
-                        <li>
-                            <a href="./CrimeThriller.html" class="dropdown-item">Crime & Thrillers</a>
-                        </li>
-                        <li>
-                            <a href="./MangaAnime.html" class="dropdown-item">Manga & Anime</a>
-                        </li>
-                        <li>
-                            <a href="./SciFi.html" class="dropdown-item">Science Fiction</a>
-                        </li>
-                      </ul>
                     </li>
                     <li>
                         <a href="./wishlist.html" class="navbar-item">Wishlist</a>
@@ -48,10 +28,10 @@
                 </ul>
             </nav>
 
-            <form>
+            <form id="search-form">
                 <label for="search-bar">Search Books</label>
-                <input type="text" placeholder="Book Title" name="title" id="title" class="input is-success" />
-                <button class="button is-success is-small" id="search-btn">Search:</button>
+                <input type="text" placeholder="Title/Author" name="title" id="title" class="input is-success" />
+                <button class="button is-small" id="search-btn">Search:</button>
             </form>
         </header>
 
@@ -92,6 +72,11 @@
                 <div class="reviews box">
                     <h2>Reviews</h2>
                     <div class="block"></div>
+                    <form id="reviews-form">
+                        <label for="reviews-search">Browse</label>
+                        <input type="text" placeholder="Title/Author" name="reviews-search" id="reviews-search" class="input is-success" />
+                        <button class="button is-small" id="reviews-btn">Search:</button>
+                    </form>
                     <ol id="reviews-list"></ol>
                 </div>
             </div>
@@ -105,7 +90,7 @@
                 &copy; 2021 Book Worm, Inc.
             </div>
         </footer>
-        <script src="./assets/js/script.js" defer></script>
+        <script src="./assets/js/script.js"></script>
     </body>
 
 </html>

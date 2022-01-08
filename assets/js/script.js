@@ -2,13 +2,15 @@
 var searchBtn = document.querySelector("#search-btn");
 var resultEl = document.querySelector("#search-results");
 var myBookEl = document.querySelector("#my-book-container");
-var bookMonthEl = document.querySelector("#book-of-the-month")
+var bookMonthEl = document.querySelector("#book-of-the-month");
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
-var WishListEl = document.querySelector(".WishList");
 var bestsellersEl = document.getElementById("best-sellers-list");
 var reviewsEl = document.getElementById("reviews-list");
+var reviewsFormEl = document.getElementById("reviews-form");
+var reviewsBtnEl = document.getElementById("reviews-btn");
+var reviewsInput = document.getElementById("reviews-search");
 var NYTAPIKEY = "?api-key=TlaGcjpp9UjO8xLJiOFSmOKXPOu4M2Go";
 
 
@@ -51,7 +53,6 @@ var displaySearch = async function (event) {
         var currentRead = document.createElement("button");
         var toRead = document.createElement("button");
         var read = document.createElement("button");
-        var WishList = document.createElement('button'); 
 
         card.setAttribute("class", "card");
         cardTitleEl.setAttribute("class", "card-content");
@@ -72,11 +73,6 @@ var displaySearch = async function (event) {
         read.addEventListener("click", addRead);
         read.textContent = "Read Book";
 
-        // add wishlist button to search page 
-        WishList.setAttribute("class", "button");
-        WishList.addEventListener("click", addToWishList);
-        WishList.textContent = "Add to Wishlist";
-
         titleEl.textContent = title;
         imageEl.setAttribute("src", image);
 
@@ -90,7 +86,6 @@ var displaySearch = async function (event) {
         card.appendChild(currentRead);
         card.appendChild(toRead);
         card.appendChild(read);
-        card.appendChild(WishList);
 
         currentRead.info = {
             title,
@@ -104,15 +99,17 @@ var displaySearch = async function (event) {
 
 // functions to save to local storage
 function addtoCurrentRead(event) {
+    console.log(event.currentTarget.info);
     var volume1 = event.currentTarget.info;
+    console.log(volume1);
     // console.log(JSON.stringify(volume));
-    window.localStorage.setItem("volume1", JSON.stringify(volume1));
-    window.localStorage.getItem("volume1");
-    
+    localStorage.setItem("volume1", JSON.stringify(volume1));
+    localStorage.getItem("volume1");
 };
 
 
 function addToRead(event) {
+    console.log(event.currentTarget.info);
     var volume2 = event.currentTarget.info;
     localStorage.setItem("volume2", JSON.stringify(volume2));
     localStorage.getItem("volume2");
@@ -120,15 +117,10 @@ function addToRead(event) {
 
 
 function addRead(event) { 
+    console.log(event.currentTarget.info);
     var volume3 = event.currentTarget.info;
     localStorage.setItem("volume3", JSON.stringify(volume3));
     localStorage.getItem("volume3");
-};
-
-function addToWishList(event) { 
-    var volume4 = event.currentTarget.info;
-    localStorage.setItem("volume4", JSON.stringify(volume4));
-    localStorage.getItem("volume4");
 };
 
 
@@ -141,15 +133,8 @@ var localStorageDisplay = function() {
         currentReadEl.textContent = "No books saved yet!";
         return;
     }
-    console.log
 };
 
-function passValues() {
-    var bookTitle=document.getElementById("title").value;
-    localStorage.setItem("currentlyReading",bookTitle);
-    window.location.href="./mybooks.html"
-    return false;
-}
 
 var displayBestSellers = async function () {
     var NYTurl = `https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json${NYTAPIKEY}`;
@@ -158,7 +143,7 @@ var displayBestSellers = async function () {
         .then(response => response.json())
         .then((data) => {
             var bestsellersList = data.results
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 10; i++) {
                 let booktitle = bestsellersList[i].title;
                 let bookAuthor = bestsellersList[i].author;
                 var listItem = document.createElement('li');
@@ -169,14 +154,19 @@ var displayBestSellers = async function () {
 };
 
 
-var displayReviews = async function () {
-    var NYTurl = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}`;
+var displayReviews =  async function (event) {
+    event.preventDefault();
+
+    var reviewSearch = reviewsInput.value.trim();
+    console.log(reviewSearch)
+
+    var reviewsURL = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}&title=${reviewSearch}`;
     
-    fetch(NYTurl)
+    fetch(reviewsURL)
         .then(response => response.json())
         .then((data) => {
-            var reviewsList = data.results
-            for (let i = 0; i < 10; i++) {
+           console.log(data)
+           for (let i = 0; i < 10; i++) {
                 let booktitle = reviewsList[i].title;
                 let bookAuthor = reviewsList[i].author;
                 var listItem = document.createElement('li');
@@ -188,8 +178,7 @@ var displayReviews = async function () {
 
 
 displayBestSellers();
-displayReviews();
-
+reviewsBtnEl.addEventListener('click', displayReviews)
 
 // function to display information in local storage to wishlist page
 
