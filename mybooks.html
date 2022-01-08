@@ -19,10 +19,10 @@
                         <a href="./index.html" class="navbar-item">Home</a>
                     </li>
                     <li>
-                        <a href="./index.html" class="navbar-item">Explore</a>
+                        <a href="./wishlist.html" class="navbar-item">Wishlist</a>
                     </li>
                     <li>
-                        <a href="./wishlist.html" class="navbar-item">Wishlist</a>
+                        <a href="./mybooks.html" class="navbar-item">My Books</a>
                     </li>
                 </ul>
             </nav>
@@ -39,22 +39,26 @@
                 <h1 class="title is-2">My Books:</h1>
                 <div class="box">
                     <h2>Currently Reading:</h2>
-                    <div class="currenty-reading block"></div>
+                    <div class="currently-reading storage-container block"></div>
                     <button class="button is-success is-small is-outlined" id="clear-btn">Clear</button>
                 </div>
                 <div class="box">
                     <h2>To Read:</h2>
-                    <div class="to-read-list block"></div>
+                    <div class="to-read-list storage-container block"></div>
                     <button class="button is-success is-small is-outlined" id="clear-btn">Clear</button>
                 </div>
                 <div class="box">
                     <h2>Read:</h2>
-                    <div class="read-list block"></div>
+                    <div class="read-list storage-container block"></div>
                     <button class="button is-success is-small is-outlined" id="clear-btn">Clear</button>
                 </div>
             </div>
 
+            <div class="hide" id="wishlist-container"></div>
+
             <div class="container hide" id="search-results"></div>
+
+            <div id="book-of-the-month"></div>
             
         </main>
 
