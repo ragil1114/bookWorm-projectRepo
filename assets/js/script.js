@@ -1,11 +1,13 @@
 //global variables
 var searchBtn = document.querySelector("#search-btn");
+var clearBtn = document.querySelector("#clear-btn");
 var resultEl = document.querySelector("#search-results");
 var myBookEl = document.querySelector("#my-book-container");
 var bookMonthEl = document.querySelector("#book-of-the-month");
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
+var wishListEl = document.querySelector("#wishlist-container");
 var bestsellersEl = document.getElementById("best-sellers-list");
 var reviewsEl = document.getElementById("reviews-list");
 var reviewsFormEl = document.getElementById("reviews-form");
