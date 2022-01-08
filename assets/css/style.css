@@ -22,7 +22,6 @@ main {
 .navbar-menu {
     background: var(--tertiary);
     display: flex;
-    flex-flow: row;
     justify-content: space-between; /* This property follows the Main Axis. */
     align-items: center; /* This property follows the Cross Axis. In this case it vertically centers the content. */
 }
