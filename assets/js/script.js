@@ -55,6 +55,7 @@ var displaySearch = async function (event) {
         var currentRead = document.createElement("button");
         var toRead = document.createElement("button");
         var read = document.createElement("button");
+        var wishList = document.createElement("button");
 
         card.setAttribute("class", "card");
         cardTitleEl.setAttribute("class", "card-content");
