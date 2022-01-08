@@ -28,8 +28,8 @@
             </nav>
 
             <form>
-                <label for="search-bar">Search Books:</label>
-                <input type="text" placeholder="Book Title" name="title" id="title" class="input is-success" />
+                <label for="search-bar">Search Books</label>
+                <input type="text" placeholder="Title/Author" name="title" id="title" class="input is-success" />
                 <button class="button is-small" id="search-btn">Search:</button>
             </form>
         </header>
@@ -39,22 +39,26 @@
                 <h1 class="title is-2">My Books:</h1>
                 <div class="box">
                     <h2>Currently Reading:</h2>
-                    <div class="currenty-reading block"></div>
+                    <div class="currenty-reading storage-container block"></div>
                     <button class="button is-success is-small is-outlined" id="clear-btn">Clear</button>
                 </div>
                 <div class="box">
                     <h2>To Read:</h2>
-                    <div class="to-read-list block"></div>
+                    <div class="to-read-list storage-container block"></div>
                     <button class="button is-success is-small is-outlined" id="clear-btn">Clear</button>
                 </div>
                 <div class="box">
                     <h2>Read:</h2>
-                    <div class="read-list block"></div>
+                    <div class="read-list storage-container block"></div>
                     <button class="button is-success is-small is-outlined" id="clear-btn">Clear</button>
                 </div>
             </div>
 
+            <div class="hide" id="wishlist-container"></div>
+
             <div class="container hide" id="search-results"></div>
+
+            <div id="book-of-the-month"></div>
             
         </main>
 
