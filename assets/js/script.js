@@ -295,6 +295,7 @@ var displayBestSellers = async function () {
         });
 };
 
+
 var displayReviews =  async function (event) {
     event.preventDefault();
 
@@ -323,12 +324,18 @@ var displayReviews =  async function (event) {
 };
 
 
+// call
 displayBestSellers();
-reviewsBtnEl.addEventListener('click', displayReviews)
 
-// function to display information in local storage to wishlist page
 
 // function to clear each book container
+clearBtn.addEventListener("click", function(){
+    localStorage.clear();
+    document.getElementsByClassName("storage-container").innerHTML="";
+    window.location.reload();
+});
 
-// event listenters
+
+// event listeners
 searchBtn.addEventListener("click", displaySearch);
+reviewsBtnEl.addEventListener('click', displayReviews)
