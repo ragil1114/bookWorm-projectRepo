@@ -101,6 +101,21 @@ var displaySearch = async function (event) {
             image,
         };
 
+        toRead.info = {
+            title,
+            image,
+        };
+
+        read.info = {
+            title,
+            image,
+        };
+
+        wishList.info = {
+            title,
+            image,
+        }
+
         resultEl.appendChild(card);
     });
 };
