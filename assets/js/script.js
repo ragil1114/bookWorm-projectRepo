@@ -6,6 +6,7 @@ var bookMonthEl = document.querySelector("#book-of-the-month");
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
+var wishListEl = document.querySelector("#wishlist-container");
 var bestsellersEl = document.getElementById("best-sellers-list");
 var reviewsEl = document.getElementById("reviews-list");
 var reviewsFormEl = document.getElementById("reviews-form");
@@ -53,6 +54,7 @@ var displaySearch = async function (event) {
         var currentRead = document.createElement("button");
         var toRead = document.createElement("button");
         var read = document.createElement("button");
+        var wishList = document.createElement("button");
 
         card.setAttribute("class", "card");
         cardTitleEl.setAttribute("class", "card-content");
@@ -73,6 +75,11 @@ var displaySearch = async function (event) {
         read.addEventListener("click", addRead);
         read.textContent = "Read Book";
 
+        // add buttons to the card for wish list
+        wishList.setAttribute("class", "button");
+        wishList.addEventListener("click", addtoWishList);
+        wishList.textContent = "Wish List";
+
         titleEl.textContent = title;
         imageEl.setAttribute("src", image);
 
@@ -86,6 +93,7 @@ var displaySearch = async function (event) {
         card.appendChild(currentRead);
         card.appendChild(toRead);
         card.appendChild(read);
+        card.appendChild(wishList);
 
         currentRead.info = {
             title,
@@ -101,6 +109,11 @@ var displaySearch = async function (event) {
             title,
             image,
         };
+
+        wishList.info = {
+            title,
+            image,
+        }
 
         resultEl.appendChild(card);
     });
@@ -125,6 +138,12 @@ function addRead(event) {
     console.log(event.currentTarget.info);
     var volume3 = event.currentTarget.info;
     localStorage.setItem("volume3", JSON.stringify(volume3));
+};
+
+function addtoWishList(event) {
+    console.log(event.currentTarget.info);
+    var volume4 = event.currentTarget.info;
+    localStorage.setItem("volume4", JSON.stringify(volume4));
 };
 
 // function to display information in local storage to currently reading
@@ -159,7 +178,7 @@ window.addEventListener('load',
     }
 );
 
-// function to display information in local storage to 
+// function to display information in local storage to read
 window.addEventListener('load',
     function () {
         var volume2data = JSON.parse(localStorage.getItem("volume2"));
@@ -191,9 +210,10 @@ window.addEventListener('load',
     }
 );
 
+// function to display from local storage to "read" section
 window.addEventListener('load',
     function () {
-        var volume3data = JSON.parse(localStorage.getItem("volume2"));
+        var volume3data = JSON.parse(localStorage.getItem("volume3"));
 
         var title = volume3data.title;
         var image = volume3data.image;
@@ -222,6 +242,41 @@ window.addEventListener('load',
     }
 );
 
+// wishlist storage display
+window.addEventListener('load',
+    function () {
+        var volume4data = JSON.parse(localStorage.getItem("volume4"));
+
+        var title = volume4data.title;
+        var image = volume4data.image;
+
+        var titleEl = document.createElement("h3");
+        var imageEl = document.createElement("img");
+        var card = document.createElement("div");
+
+        var cardTitleEl = document.createElement("div");
+        var cardImgEl = document.createElement("div");
+
+        card.setAttribute("class", "card");
+        cardTitleEl.setAttribute("class", "card-content");
+        cardImgEl.setAttribute("class", "card-image");
+
+        titleEl.textContent = title;
+        imageEl.setAttribute("src", image);
+
+        cardTitleEl.appendChild(titleEl);
+        cardImgEl.appendChild(imageEl);
+
+        card.appendChild(cardImgEl);
+        card.appendChild(cardTitleEl);
+
+        wishListEl.appendChild(card);
+
+
+    }
+);
+
+
 
 // function to display Best Seller Category on Homepage
 var displayBestSellers = async function () {
@@ -237,12 +292,12 @@ var displayBestSellers = async function () {
                 var listItem = document.createElement('li');
                 listItem.textContent = `${booktitle} by ${bookAuthor}`;
                 bestsellersEl.appendChild(listItem)
-            } 
+            }
         });
 };
 
 // function to display Review search on Homepage
-var displayReviews =  async function (event) {
+var displayReviews = async function (event) {
     event.preventDefault();
 
     var reviewSearch = reviewsInput.value.trim();
@@ -258,11 +313,12 @@ var displayReviews =  async function (event) {
 };
 
 
-displayBestSellers();
-reviewsBtnEl.addEventListener('click', displayReviews)
+// displayBestSellers();
+
 
 
 // function to clear each book container
 
 // event listenters
 searchBtn.addEventListener("click", displaySearch);
+// reviewsBtnEl.addEventListener('click', displayReviews);
