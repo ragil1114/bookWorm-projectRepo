@@ -6,6 +6,7 @@ var bookMonthEl = document.querySelector("#book-of-the-month");
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
+var wishListEl = document.querySelector(".wish-list");
 var bestsellersEl = document.getElementById("best-sellers-list");
 var reviewsEl = document.getElementById("reviews-list");
 var reviewsFormEl = document.getElementById("reviews-form");
@@ -53,6 +54,7 @@ var displaySearch = async function (event) {
         var currentRead = document.createElement("button");
         var toRead = document.createElement("button");
         var read = document.createElement("button");
+        var wishList = document.createElement("button");
 
         card.setAttribute("class", "card");
         cardTitleEl.setAttribute("class", "card-content");
@@ -73,6 +75,11 @@ var displaySearch = async function (event) {
         read.addEventListener("click", addRead);
         read.textContent = "Read Book";
 
+         // add buttons to the card for wish list
+         wishList.setAttribute("class", "button");
+         wishList.addEventListener("click", addtoWishList);
+         wishList.textContent = "Wish List";
+
         titleEl.textContent = title;
         imageEl.setAttribute("src", image);
 
@@ -86,6 +93,7 @@ var displaySearch = async function (event) {
         card.appendChild(currentRead);
         card.appendChild(toRead);
         card.appendChild(read);
+        card.appendChild(wishList);
 
         currentRead.info = {
             title,
@@ -121,6 +129,13 @@ function addRead(event) {
     var volume3 = event.currentTarget.info;
     localStorage.setItem("volume3", JSON.stringify(volume3));
     localStorage.getItem("volume3");
+};
+
+function addtoWishList(event) { 
+    console.log(event.currentTarget.info);
+    var volume3 = event.currentTarget.info;
+    localStorage.setItem("volume4", JSON.stringify(volume3));
+    localStorage.getItem("volume4");
 };
 
 
