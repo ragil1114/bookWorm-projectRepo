@@ -1,5 +1,6 @@
 //global variables
 var searchBtn = document.querySelector("#search-btn");
+var clearBtn = document.querySelector("#clear-btn");
 var resultEl = document.querySelector("#search-results");
 var myBookEl = document.querySelector("#my-book-container");
 var bookMonthEl = document.querySelector("#book-of-the-month");
@@ -318,6 +319,12 @@ var displayReviews = async function (event) {
 
 
 // function to clear each book container
+clearBtn.addEventListener("click", function(){
+    localStorage.clear();
+    document.getElementsByClassName("storage-container").innerHTML="";
+    window.location.reload();
+});
+
 
 // event listenters
 searchBtn.addEventListener("click", displaySearch);
