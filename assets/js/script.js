@@ -76,6 +76,11 @@ var displaySearch = async function (event) {
         read.addEventListener("click", addRead);
         read.textContent = "Read Book";
 
+        // add buttons to the card for wish list
+        wishList.setAttribute("class", "button");
+        wishList.addEventListener("click", addtoWishList);
+        wishList.textContent = "Wish List";
+
         titleEl.textContent = title;
         imageEl.setAttribute("src", image);
 
