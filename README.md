@@ -66,4 +66,8 @@ https://ragil1114.github.io/bookWorm-projectRepo/
 ![demo](https://github.com/ragil1114/bookWorm-projectRepo/blob/main/assets/images/demo.png)
 ![demo2](https://github.com/ragil1114/bookWorm-projectRepo/blob/main/assets/images/demo2.png)
 ![demo3](https://github.com/ragil1114/bookWorm-projectRepo/blob/main/assets/images/demo3.png)
+<<<<<<< HEAD
 ![demo4](https://github.com/ragil1114/bookWorm-projectRepo/blob/main/assets/images/demo4.png)
+=======
+![demo4](https://github.com/ragil1114/bookWorm-projectRepo/blob/main/assets/images/demo4.png)
+>>>>>>> bc5eda1225830b09acc196465b9988f3f596ef0a
