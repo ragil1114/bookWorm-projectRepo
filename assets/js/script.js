@@ -16,7 +16,6 @@ var reviewsBtnEl = document.getElementById("reviews-btn");
 var reviewsInput = document.getElementById("reviews-search");
 var NYTAPIKEY = "?api-key=TlaGcjpp9UjO8xLJiOFSmOKXPOu4M2Go";
 
-
 // function to display items from search bar
 var displaySearch = async function (event) {
     event.preventDefault();
@@ -117,7 +116,7 @@ var displaySearch = async function (event) {
         wishList.info = {
             title,
             image,
-        }
+        };
 
         resultEl.appendChild(card);
     });
@@ -130,204 +129,202 @@ function addtoCurrentRead(event) {
     console.log(volume1);
     // console.log(JSON.stringify(volume));
     localStorage.setItem("volume1", JSON.stringify(volume1));
-};
+}
 
 function addToRead(event) {
     console.log(event.currentTarget.info);
     var volume2 = event.currentTarget.info;
     localStorage.setItem("volume2", JSON.stringify(volume2));
-};
+}
 
 function addRead(event) {
     console.log(event.currentTarget.info);
     var volume3 = event.currentTarget.info;
     localStorage.setItem("volume3", JSON.stringify(volume3));
-};
+}
 
 function addtoWishList(event) {
     console.log(event.currentTarget.info);
     var volume4 = event.currentTarget.info;
     localStorage.setItem("volume4", JSON.stringify(volume4));
-};
+}
 
 // function to display information in local storage to currently reading
-window.addEventListener('load',
-    function () {
-        var volume1data = JSON.parse(localStorage.getItem("volume1"));
+window.addEventListener("load", function () {
+    var volume1data = JSON.parse(localStorage.getItem("volume1"));
 
-        var title = volume1data.title;
-        var image = volume1data.image;
+    var title = volume1data.title;
+    var image = volume1data.image;
 
-        var titleEl = document.createElement("h3");
-        var imageEl = document.createElement("img");
-        var card = document.createElement("div");
+    var titleEl = document.createElement("h3");
+    var imageEl = document.createElement("img");
+    var card = document.createElement("div");
 
-        var cardTitleEl = document.createElement("div");
-        var cardImgEl = document.createElement("div");
+    var cardTitleEl = document.createElement("div");
+    var cardImgEl = document.createElement("div");
 
-        card.setAttribute("class", "card");
-        cardTitleEl.setAttribute("class", "card-content");
-        cardImgEl.setAttribute("class", "card-image");
+    card.setAttribute("class", "card");
+    cardTitleEl.setAttribute("class", "card-content");
+    cardImgEl.setAttribute("class", "card-image");
 
-        titleEl.textContent = title;
-        imageEl.setAttribute("src", image);
+    titleEl.textContent = title;
+    imageEl.setAttribute("src", image);
 
-        cardTitleEl.appendChild(titleEl);
-        cardImgEl.appendChild(imageEl);
+    cardTitleEl.appendChild(titleEl);
+    cardImgEl.appendChild(imageEl);
 
-        card.appendChild(cardImgEl);
-        card.appendChild(cardTitleEl);
+    card.appendChild(cardImgEl);
+    card.appendChild(cardTitleEl);
 
-        currentReadEl.appendChild(card);
-    }
-);
+    currentReadEl.appendChild(card);
+});
 
 // function to display information in local storage to read
-window.addEventListener('load',
-    function () {
-        var volume2data = JSON.parse(localStorage.getItem("volume2"));
+window.addEventListener("load", function () {
+    var volume2data = JSON.parse(localStorage.getItem("volume2"));
 
-        var title = volume2data.title;
-        var image = volume2data.image;
+    var title = volume2data.title;
+    var image = volume2data.image;
 
-        var titleEl = document.createElement("h3");
-        var imageEl = document.createElement("img");
-        var card = document.createElement("div");
+    var titleEl = document.createElement("h3");
+    var imageEl = document.createElement("img");
+    var card = document.createElement("div");
 
-        var cardTitleEl = document.createElement("div");
-        var cardImgEl = document.createElement("div");
+    var cardTitleEl = document.createElement("div");
+    var cardImgEl = document.createElement("div");
 
-        card.setAttribute("class", "card");
-        cardTitleEl.setAttribute("class", "card-content");
-        cardImgEl.setAttribute("class", "card-image");
+    card.setAttribute("class", "card");
+    cardTitleEl.setAttribute("class", "card-content");
+    cardImgEl.setAttribute("class", "card-image");
 
-        titleEl.textContent = title;
-        imageEl.setAttribute("src", image);
+    titleEl.textContent = title;
+    imageEl.setAttribute("src", image);
 
-        cardTitleEl.appendChild(titleEl);
-        cardImgEl.appendChild(imageEl);
+    cardTitleEl.appendChild(titleEl);
+    cardImgEl.appendChild(imageEl);
 
-        card.appendChild(cardImgEl);
-        card.appendChild(cardTitleEl);
+    card.appendChild(cardImgEl);
+    card.appendChild(cardTitleEl);
 
-        toReadEl.appendChild(card);
-    }
-);
+    toReadEl.appendChild(card);
+});
 
 // function to display from local storage to "read" section
-window.addEventListener('load',
-    function () {
-        var volume3data = JSON.parse(localStorage.getItem("volume3"));
+window.addEventListener("load", function () {
+    var volume3data = JSON.parse(localStorage.getItem("volume3"));
 
-        var title = volume3data.title;
-        var image = volume3data.image;
+    var title = volume3data.title;
+    var image = volume3data.image;
 
-        var titleEl = document.createElement("h3");
-        var imageEl = document.createElement("img");
-        var card = document.createElement("div");
+    var titleEl = document.createElement("h3");
+    var imageEl = document.createElement("img");
+    var card = document.createElement("div");
 
-        var cardTitleEl = document.createElement("div");
-        var cardImgEl = document.createElement("div");
+    var cardTitleEl = document.createElement("div");
+    var cardImgEl = document.createElement("div");
 
-        card.setAttribute("class", "card");
-        cardTitleEl.setAttribute("class", "card-content");
-        cardImgEl.setAttribute("class", "card-image");
+    card.setAttribute("class", "card");
+    cardTitleEl.setAttribute("class", "card-content");
+    cardImgEl.setAttribute("class", "card-image");
 
-        titleEl.textContent = title;
-        imageEl.setAttribute("src", image);
+    titleEl.textContent = title;
+    imageEl.setAttribute("src", image);
 
-        cardTitleEl.appendChild(titleEl);
-        cardImgEl.appendChild(imageEl);
+    cardTitleEl.appendChild(titleEl);
+    cardImgEl.appendChild(imageEl);
 
-        card.appendChild(cardImgEl);
-        card.appendChild(cardTitleEl);
+    card.appendChild(cardImgEl);
+    card.appendChild(cardTitleEl);
 
-        readEl.appendChild(card);
-    }
-);
+    readEl.appendChild(card);
+});
 
 // wishlist storage display
-window.addEventListener('load',
-    function () {
-        var volume4data = JSON.parse(localStorage.getItem("volume4"));
+window.addEventListener("load", function () {
+    var volume4data = JSON.parse(localStorage.getItem("volume4"));
 
-        var title = volume4data.title;
-        var image = volume4data.image;
+    var title = volume4data.title;
+    var image = volume4data.image;
 
-        var titleEl = document.createElement("h3");
-        var imageEl = document.createElement("img");
-        var card = document.createElement("div");
+    var titleEl = document.createElement("h3");
+    var imageEl = document.createElement("img");
+    var card = document.createElement("div");
 
-        var cardTitleEl = document.createElement("div");
-        var cardImgEl = document.createElement("div");
+    var cardTitleEl = document.createElement("div");
+    var cardImgEl = document.createElement("div");
 
-        card.setAttribute("class", "card");
-        cardTitleEl.setAttribute("class", "card-content");
-        cardImgEl.setAttribute("class", "card-image");
+    card.setAttribute("class", "card");
+    cardTitleEl.setAttribute("class", "card-content");
+    cardImgEl.setAttribute("class", "card-image");
 
-        titleEl.textContent = title;
-        imageEl.setAttribute("src", image);
+    titleEl.textContent = title;
+    imageEl.setAttribute("src", image);
 
-        cardTitleEl.appendChild(titleEl);
-        cardImgEl.appendChild(imageEl);
+    cardTitleEl.appendChild(titleEl);
+    cardImgEl.appendChild(imageEl);
 
-        card.appendChild(cardImgEl);
-        card.appendChild(cardTitleEl);
+    card.appendChild(cardImgEl);
+    card.appendChild(cardTitleEl);
 
-        wishListEl.appendChild(card);
-
-
-    }
-);
-
-
+    wishListEl.appendChild(card);
+});
 
 // function to display Best Seller Category on Homepage
 var displayBestSellers = async function () {
     var NYTurl = `https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json${NYTAPIKEY}`;
 
     fetch(NYTurl)
-        .then(response => response.json())
+        .then((response) => response.json())
         .then((data) => {
-            var bestsellersList = data.results
+            var bestsellersList = data.results;
             for (let i = 0; i < 10; i++) {
                 let booktitle = bestsellersList[i].title;
                 let bookAuthor = bestsellersList[i].author;
-                var listItem = document.createElement('li');
+                var listItem = document.createElement("li");
                 listItem.textContent = `${booktitle} by ${bookAuthor}`;
-                bestsellersEl.appendChild(listItem)
+                bestsellersEl.appendChild(listItem);
             }
         });
 };
 
-// function to display Review search on Homepage
+// function to display book reviews on homepage
 var displayReviews = async function (event) {
     event.preventDefault();
 
     var reviewSearch = reviewsInput.value.trim();
-    console.log(reviewSearch)
+    console.log(reviewSearch);
 
-    var reviewsURL = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}`;
+    var reviewsURL = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}&title=${reviewSearch}`;
 
     fetch(reviewsURL)
-        .then(response => response.json())
+        .then((response) => response.json())
         .then((data) => {
-            console.log(data)
+            console.log(data.results);
+            for (let i = 0; i < data.results.length; i++) {
+                let booktitle = data.results[i].book_title;
+                let bookAuthor = data.results[i].book_author;
+                let bookURL = data.results[i].url;
+                var listItem = document.createElement("li");
+                listItem.textContent = `${booktitle} by ${bookAuthor} ${bookURL}`;
+                reviewsEl.appendChild(listItem);
+
+                var bookurlEl = document.createElement("a");
+                bookurlEl.reviewsList =
+                    "list-item flex-row justify-space-between align-center";
+                bookurlEl.setAttribute("href", "./index.html?url=");
+            }
         });
 };
 
-
-// displayBestSellers();
-
-
+// call
+displayBestSellers();
 
 // function to clear each book container
-clearBtn.addEventListener("click", function(){
+clearBtn.addEventListener("click", function () {
     localStorage.clear();
-    document.getElementsByClassName("storage-container").innerHTML="";
+    document.getElementsByClassName("storage-container").innerHTML = "";
     window.location.reload();
 });
-
 
 // event listenters
 searchBtn.addEventListener("click", displaySearch);
