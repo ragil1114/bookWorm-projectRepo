@@ -4,6 +4,7 @@ var clearBtn = document.querySelector("#clear-btn");
 var resultEl = document.querySelector("#search-results");
 var myBookEl = document.querySelector("#my-book-container");
 var bookMonthEl = document.querySelector("#book-of-the-month");
+var genreEl = document.querySelector("#genre-container");
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
@@ -27,6 +28,8 @@ var displaySearch = async function (event) {
     // change classes to display correct div
     myBookEl.setAttribute("class", "hide");
     bookMonthEl.setAttribute("class", "hide");
+    genreEl.setAttribute("class", "hide");
+    wishListEl.setAttribute("class", "hide");
     resultEl.removeAttribute("class");
 
     // console.log(endPoint);
