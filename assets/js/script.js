@@ -4,6 +4,7 @@ var clearBtn = document.querySelector("#clear-btn");
 var resultEl = document.querySelector("#search-results");
 var myBookEl = document.querySelector("#my-book-container");
 var bookMonthEl = document.querySelector("#book-of-the-month");
+var genreEl = document.querySelector("#genre-container");
 var currentReadEl = document.querySelector(".currently-reading");
 var toReadEl = document.querySelector(".to-read-list");
 var readEl = document.querySelector(".read-list");
@@ -27,6 +28,8 @@ var displaySearch = async function (event) {
     // change classes to display correct div
     myBookEl.setAttribute("class", "hide");
     bookMonthEl.setAttribute("class", "hide");
+    genreEl.setAttribute("class", "hide");
+    wishListEl.setAttribute("class", "hide");
     resultEl.removeAttribute("class");
 
     // console.log(endPoint);
@@ -38,7 +41,7 @@ var displaySearch = async function (event) {
     }
 
     const { items } = await response.json();
-    console.log(items);
+    // console.log(items);
 
     // for each item in array create a card to display content
     items.forEach(function (item) {
@@ -122,9 +125,9 @@ var displaySearch = async function (event) {
 
 // functions to save to local storage
 function addtoCurrentRead(event) {
-    console.log(event.currentTarget.info);
+    // console.log(event.currentTarget.info);
     var volume1 = event.currentTarget.info;
-    console.log(volume1);
+    // console.log(volume1);
     // console.log(JSON.stringify(volume));
     localStorage.setItem("volume1", JSON.stringify(volume1));
 };
@@ -148,8 +151,7 @@ function addtoWishList(event) {
 };
 
 // function to display information in local storage to currently reading
-window.addEventListener('load',
-    function () {
+window.addEventListener('load', function () {
         var volume1data = JSON.parse(localStorage.getItem("volume1"));
 
         var title = volume1data.title;
@@ -180,8 +182,7 @@ window.addEventListener('load',
 );
 
 // function to display information in local storage to read
-window.addEventListener('load',
-    function () {
+window.addEventListener('load', function () {
         var volume2data = JSON.parse(localStorage.getItem("volume2"));
 
         var title = volume2data.title;
@@ -212,8 +213,7 @@ window.addEventListener('load',
 );
 
 // function to display from local storage to "read" section
-window.addEventListener('load',
-    function () {
+window.addEventListener('load', function () {
         var volume3data = JSON.parse(localStorage.getItem("volume3"));
 
         var title = volume3data.title;
@@ -300,14 +300,14 @@ var displayReviews =  async function (event) {
     event.preventDefault();
 
     var reviewSearch = reviewsInput.value.trim();
-    console.log(reviewSearch)
+    // console.log(reviewSearch)
 
     var reviewsURL = `https://api.nytimes.com/svc/books/v3/reviews.json${NYTAPIKEY}&title=${reviewSearch}`;
     
     fetch(reviewsURL)
         .then(response => response.json())
         .then((data) => {
-           console.log(data.results);
+           // console.log(data.results);
            for (let i = 0; i < data.results.length; i++) {
                 let booktitle = data.results[i].book_title;
                 let bookAuthor = data.results[i].book_author;
@@ -329,9 +329,9 @@ displayBestSellers();
 
 
 // function to clear each book container
-clearBtn.addEventListener("click", function() {
+clearBtn.addEventListener("click", function () {
     localStorage.clear();
-    document.getElementsByClassName("storage-container").innerHTML="";
+    document.getElementsByClassName("storage-container").innerHTML = "";
     window.location.reload();
 });
 
